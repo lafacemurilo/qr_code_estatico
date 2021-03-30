@@ -11,8 +11,6 @@ app.use(bodyParser.json())
 app.use((req, res, next)=>{console.log(`[${req.method}] ${req.url}`); return next()})
 
 //Rotas
-// const classe = new classe()
-
 app.use('/', index)
 app.use('/', gerar_qr_code)
 

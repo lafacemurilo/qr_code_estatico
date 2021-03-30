@@ -1,7 +1,7 @@
 const payloadConstant = require('../constants/payloadConstant')
 const cr16 = require('../actions/crc16')
 
-class qr_code_dinamico {
+class qr_code_estatico {
 
 
     gerarlength(valor){
@@ -9,7 +9,7 @@ class qr_code_dinamico {
         return valor.length < 10 ? '0' + valor.length : valor.length
     }
 
-    async gerar_qr_code_dinamico(payload_json){
+    async gerar_qr_code_estatico(payload_json){
         console.log(payload_json)
         
         const payload = new payloadConstant()
@@ -45,4 +45,4 @@ class qr_code_dinamico {
 }
 
 
-module.exports = qr_code_dinamico
+module.exports = qr_code_estatico
