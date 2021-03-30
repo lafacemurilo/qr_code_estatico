@@ -15,11 +15,12 @@ class qr_code_dinamico {
         const payload = new payloadConstant()
         const CR16 = new cr16()
 
-        const txid = payload_json.txid_payload
+
+        const txid = !payload_json.txid_payload ? '' : payload_json.txid_payload
         const cid = payload_json.cid
-        const value = payload_json.value
-        const merchant_name = payload_json.merchant_name
-        const merchant_city = payload_json.merchant_city
+        const value = !payload_json.value ? '' : payload_json.value
+        const merchant_name = !payload_json.merchant_name ? '' : payload_json.merchant_name
+        const merchant_city = !payload_json.merchant_city ? '' : payload_json.merchant_city
 
 
         var qrcode = payload.dadosGerais.ID_PAYLOAD_FORMAT_INDICATOR + '0201'
