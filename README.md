@@ -1,2 +1,3 @@
-# qr_code_dinamico
+
+# qr_code_estatico
 
