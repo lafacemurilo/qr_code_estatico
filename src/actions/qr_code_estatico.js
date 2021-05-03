@@ -3,7 +3,6 @@ const cr16 = require('../actions/crc16')
 
 class qr_code_estatico {
 
-
     gerarlength(valor) {
 
         return valor.length < 10 ? '0' + valor.length : valor.length
@@ -14,7 +13,6 @@ class qr_code_estatico {
 
         const payload = new payloadConstant()
         const CR16 = new cr16()
-
 
         const txid = !payload_json.txid ? '***' : payload_json.txid
         console.log('txtid: ' + txid)
