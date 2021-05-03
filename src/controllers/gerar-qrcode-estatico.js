@@ -8,7 +8,12 @@ class gerar_qrcode_estatico {
 
     //const cid = JSON.stringify(req.headers)
     //recebendo pelo header
-    var json = {'cid' : req.headers['cid'], 'value' : req.headers['value'], 'merchant_name': req.headers['merchant_city'], 'merchant_city' : req.headers['merchant_name']}
+    var json = {'cid' : req.headers['cid'], 
+    'value' : req.headers['value'], 
+    'merchant_name': req.headers['merchant_city'],
+    'merchant_city' : req.headers['merchant_name'], 
+    'txid' : req.headers['txid_payload'],
+    'info_add' : req.headers['info_add']}
     if (!json.cid) return res.status(404).json({ "chave obrigatoria": '? ' })
 
 
