@@ -15,32 +15,40 @@ class qr_code_estatico {
         const CR16 = new cr16()
 
         const txid = !payload_json.txid ? '***' : payload_json.txid
-        console.log('txtid: ' + txid)
         const cid = payload_json.cid
-        console.log('cid: ' + cid)
         const value = !payload_json.value ? '' : payload_json.value
         const merchant_name = !payload_json.merchant_name ? '' : payload_json.merchant_name
         const merchant_city = !payload_json.merchant_city ? '' : payload_json.merchant_city
         const info_add = !payload_json.info_add ? '' : payload_json.info_add
-        console.log('info_add: ' + info_add)
 
+     
+
+        //INFORMAÇÃO PADRÃO 
         var qrcode = payload.dadosGerais.ID_PAYLOAD_FORMAT_INDICATOR + '0201'
+        //CASO EXISTA UMA INFORMAÇÃO ADICIONAL, ENTÃO ACRESCENTAR 4 CARACTERES + QTD CARATED INFO_ADD
         if (info_add) {
-            qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION + (cid.length + 22 + '0000'.length + info_add.length)
+            qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION + (cid.length + 22 + '0000'.length + info_add.length) //'0000' 4 CARATERES DO ADD INFO, 02+ QTD CHAR INFO_ADD (MELHORAR ESSA PARTE)
         } else {
             qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION + (cid.length + 22) //chave + informações adicionais caso tiver 
         }
+        //INFORMAÇÃO PADRÃO
         qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION_GUI + '14' + 'br.gov.bcb.pix'
+        //CODIGO DA CHAVE + QTD CHAR DA CHAVE + CHAVE
         qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION_CID + (cid.length) + cid
+        //INFORMAÇAO ADICIONAL
         if (info_add) {
             qrcode += payload.dadosGerais.ID_MERCHANT_ACCOUNT_INFORMATION_DESCRIPTION + this.gerarlength(info_add) + info_add
         }
 
+        //INFORMAÇÃO PADRÃO
         qrcode += payload.dadosGerais.ID_MERCHANT_CATEGORY_CODE + '04' + '0000'
+        //INFORMAÇÃO PADRÃO (986 INDICA QUE A MOEDA UTILIZADA É REAIS)
         qrcode += payload.dadosGerais.ID_TRANSACTION_CURRENCY + '03' + '986'
+        //VALIDA SE TEM VALOR
         if (value) {
             qrcode += payload.dadosGerais.ID_TRANSACTION_AMOUNT + this.gerarlength(value) + value
         }
+        //INFORMAÇÃO PADRÃO
         qrcode += payload.dadosGerais.ID_COUNTRY_CODE + '02' + 'BR'
         qrcode += payload.dadosGerais.ID_MERCHANT_NAME + this.gerarlength(merchant_name) + merchant_name
         qrcode += payload.dadosGerais.ID_MERCHANT_CITY + this.gerarlength(merchant_city) + merchant_city
@@ -49,7 +57,7 @@ class qr_code_estatico {
         qrcode += payload.dadosGerais.ID_CRC16 + CR16.getcrc16(qrcode)
 
         return qrcode
-
+    
     }
 
 

@@ -14,6 +14,7 @@ class gerar_qrcode_estatico {
     'merchant_city' : req.headers['merchant_name'], 
     'txid' : req.headers['txid_payload'],
     'info_add' : req.headers['info_add']}
+    
     if (!json.cid) return res.status(404).json({ "chave obrigatoria": '? ' })
 
 
