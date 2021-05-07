@@ -3,7 +3,8 @@
 #metodo: get,
 
 ---------------------------------------------------------------------------
-para inicializar o servidor : npm start (o sistema escuta a porta 3000)
+npm start -> inicializar o servidor em prod
+npm start dev -> inicializar o nodemon para dev
 
 ---------------------------------------------------------------------------
 
