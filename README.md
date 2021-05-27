@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 
 # qr_code_estatico
-=======
-# qr_code_estatico
-#end_point : /token/oauth
+#end_point : /token/oauth 
+
+
+
 #end_point : /qr_code_estatico
 #metodo: POST
->>>>>>> master
 
 ---------------------------------------------------------------------------
 npm ci -> instala todas as dependencias
@@ -28,8 +27,6 @@ passar por json valores :
     OBS: O info_add e a chave disputam o  espaço de 99 caracteres
 
 }
-
-
 
 retorno 201 json : retorno do qr_code_estatico e a imagem desse qr_code em base64. 
 ---------------------------------------------------------------------------
