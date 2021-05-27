@@ -1,18 +1,25 @@
 # qr_code_estatico
-#end_point : /qr_code_estatico,
-#metodo: get,
+#end_point : /token/oauth
+#end_point : /qr_code_estatico
+#metodo: POST
 
 ---------------------------------------------------------------------------
+npm ci -> instala todas as dependencias
 npm start -> inicializar o servidor em prod
-npm start dev -> inicializar o nodemon para dev
+npm run dev -> inicializar o nodemon para dev
 
 ---------------------------------------------------------------------------
 
-passar por header valores :
-cid : 'chave pix' (obrigatório. E se a chave for numero passar o +55) 
-merchant_name : 'nome teste'
-merchant_city : 'cidade teste'
-value : '0.01' (passar valor com ponto)
+passar por json valores :
 
-retorno json : retorno do qr_code_estatico e a imagem desse qr_code em base64. 
+{
+    "chave" : "chave pix", (obrigatório. E se a chave for numero passar o +55)
+    "merchant_name" : "Fulano de tal",
+    "merchant_city" : "Cidade tal",
+    "value" : "0.01" (tipo float)
+}
+
+
+
+retorno 201 json : retorno do qr_code_estatico e a imagem desse qr_code em base64. 
 ---------------------------------------------------------------------------

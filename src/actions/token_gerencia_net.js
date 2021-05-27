@@ -8,15 +8,14 @@ class token {
     gerar_token() {
 
         //Insira o caminho de seu certificado .p12 dentro de seu projeto
-        var certificado = fs.readFileSync("./homologacao-292999-murilolaface.p12");
+        var certificado = fs.readFileSync("./certificado.p12");
 
         //Insira os valores de suas credenciais em desenvolvimento do pix
         var credenciais = {
-            client_id: "Client_Id_f374f215e5c261cdb707953fe6c6bd13e79aa2ad",
-            client_secret: "Client_Secret_3d712ec1e24a59d73ebabd6b6b74741487fba162",
+            client_id: "Client_Id",
+            client_secret: "Client_Secret",
         };
 
-       // var data = JSON.stringify({ grant_type: "client_credentials" });
         var data_credentials = credenciais.client_id + ":" + credenciais.client_secret;
 
         // Codificando as credenciais em base64

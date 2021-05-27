@@ -15,7 +15,7 @@ class qr_code_estatico {
         const CR16 = new cr16()
 
         const txid = !payload_json.txid ? '***' : payload_json.txid
-        const cid = payload_json.cid
+        const cid = payload_json.chave
         const value = !payload_json.value ? '' : payload_json.value
         const merchant_name = !payload_json.merchant_name ? '' : payload_json.merchant_name
         const merchant_city = !payload_json.merchant_city ? '' : payload_json.merchant_city

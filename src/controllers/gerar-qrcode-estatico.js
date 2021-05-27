@@ -6,18 +6,9 @@ class gerar_qrcode_estatico {
 
   qr_code_estatico = async (req, res) => {
 
-    //recebendo pelo header
-    /*var json = {'cid' : req.headers['cid'], 
-    'value' : req.headers['value'], 
-    'merchant_name': req.headers['merchant_city'],
-    'merchant_city' : req.headers['merchant_name'], 
-    'txid' : req.headers['txid_payload'],
-    'info_add' : req.headers['info_add']}*/
-
     var json = req.body
     
-    if (!json.cid) return res.status(404).json({ "chave obrigatoria": '? ' })
-
+    if (!json.chave) return res.status(404).json({ "chave obrigatoria": '? ' })
 
     //classe que contem o metodo que gera o qr code estatico
     const qr_code_estatico = new qr_code_est()
